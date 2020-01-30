@@ -4,17 +4,16 @@ import cn.itcast.pojo.User;
 
 public interface UserDao {
 	/**
-	 * ÕâÊÇÓÃ»§µÇÂ¼¹¦ÄÜ
-	 * @param username	ÓÃ»§Ãû
-	 * @param password	ÃÜÂë
-	 * @return µÇÂ¼ÊÇ·ñ³É¹¦
+	 * è¿™æ˜¯ç”¨æˆ·ç™»å½•åŠŸèƒ½
+	 * @param username	ç”¨æˆ·å
+	 * @param password	å¯†ç 
+	 * @return ç™»å½•æ˜¯å¦æˆåŠŸ
 	 */
 	
 	public abstract boolean login(String username,String password);
-	
 	/**
-	 * ÕâÊÇÓÃ»§×¢²á¹¦ÄÜ
-	 * @param user	±»×¢²áµÄÓÃ»§ĞÅÏ¢
+	 * è¿™æ˜¯ç”¨æˆ·æ³¨å†ŒåŠŸèƒ½
+	 * @param user	è¢«æ³¨å†Œçš„ç”¨æˆ·ä¿¡æ¯
 	 */
 	public abstract void regist(User user);
 }
