@@ -69,11 +69,11 @@ public class LoginFrame extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**
-				 * Ë¼Â·£º
-				 * A£º»ñÈ¡ÓÃ»§ÃûºÍÃÜÂë
-				 * B£ºÕıÔò±í´ïÊ½Ğ£ÑéÓÃ»§ÃûºÍÃÜÂë
-				 * C£º´´½¨¶ÔÏóµ÷ÓÃ¹¦ÄÜ£¬·µ»ØÒ»¸öbooleanÖµ
-				 * D£º¸ù¾İbooleanÖµ¸ø³öÌáÊ¾
+				 * æ€è·¯ï¼š
+				 * Aï¼šè·å–ç”¨æˆ·åå’Œå¯†ç 
+				 * Bï¼šæ­£åˆ™è¡¨è¾¾å¼æ ¡éªŒç”¨æˆ·åå’Œå¯†ç 
+				 * Cï¼šåˆ›å»ºå¯¹è±¡è°ƒç”¨åŠŸèƒ½ï¼Œè¿”å›ä¸€ä¸ªbooleanå€¼
+				 * Dï¼šæ ¹æ®booleanå€¼ç»™å‡ºæç¤º
 				 */
 				
 				//A
@@ -81,37 +81,37 @@ public class LoginFrame extends JFrame {
 				String password = jpfPassword.getText().trim();
 				
 				//B
-				//¶¨Òå¹æÔò
-				//ÓÃ»§Ãû¹æÔò
-				String usernameRegex = "[a-zA-Z]{3,10}";	//×ÖÄ¸²»Çø·Ö´óĞ¡Ğ´
-				//ÃÜÂë¹æÔò
-				String passwordRegex = "\\w{6,12}";		//6-12Î»ÈÎÒâ×Ö·û
+				//å®šä¹‰è§„åˆ™
+				//ç”¨æˆ·åè§„åˆ™
+				String usernameRegex = "[a-zA-Z]{3,10}";	//å­—æ¯ä¸åŒºåˆ†å¤§å°å†™
+				//å¯†ç è§„åˆ™
+				String passwordRegex = "\\w{6,12}";		//6-12ä½ä»»æ„å­—ç¬¦
 				
-				//Ğ£Ñé
+				//æ ¡éªŒ
 				if(!username.matches(usernameRegex)) {
-					JOptionPane.showMessageDialog(rootPane, "ÓÃ»§Ãû²»Âú×ãÌõ¼ş(3-10¸öÓ¢ÎÄ×ÖÄ¸×é³É)");
+					JOptionPane.showMessageDialog(rootPane, "ç”¨æˆ·åä¸æ»¡è¶³æ¡ä»¶(3-10ä¸ªè‹±æ–‡å­—æ¯ç»„æˆ)");
 					jtfUsername.setText("");
 					jtfUsername.requestFocus();
 					return;
 				}
 				if(!password.matches(passwordRegex)) {
-					JOptionPane.showMessageDialog(rootPane, "ÃÜÂë²»Âú×ãÌõ¼ş(6-12¸öÈÎÒâµ¥´Ê×Ö·û)");
+					JOptionPane.showMessageDialog(rootPane, "å¯†ç ä¸æ»¡è¶³æ¡ä»¶(6-12ä¸ªä»»æ„å•è¯å­—ç¬¦)");
 					jpfPassword.setText("");
 					jpfPassword.requestFocus();
 					return;
 				}	
 				
-				//´´½¨¶ÔÏóµ÷ÓÃ¹¦ÄÜ£¬·µ»ØÒ»¸öbooleanÖµ
+				//åˆ›å»ºå¯¹è±¡è°ƒç”¨åŠŸèƒ½ï¼Œè¿”å›ä¸€ä¸ªbooleanå€¼
 				UserDao ud = new UserDaoImpl();
 				boolean flag = ud.login(username, password);
 				
 				if(flag) {
-					JOptionPane.showMessageDialog(getParent(), "¹§Ï²ÄãµÇÂ¼³É¹¦£¡");
+					JOptionPane.showMessageDialog(getParent(), "æ­å–œä½ ç™»å½•æˆåŠŸï¼");
 					FrameDemo njf = new FrameDemo(username);
 					njf.setVisible(true);
 					dispose();
 				}else {
-					JOptionPane.showMessageDialog(rootPane, "ÓÃ»§Ãû»òÃÜÂë²»ÕıÈ·£¡");
+					JOptionPane.showMessageDialog(rootPane, "ç”¨æˆ·åæˆ–å¯†ç ä¸æ­£ç¡®ï¼");
 					jtfUsername.setText("");
 					jpfPassword.setText("");
 					jtfUsername.requestFocus();
@@ -138,7 +138,7 @@ public class LoginFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				RegistFrame rf = new RegistFrame();
 				rf.setVisible(true);
-				dispose(); //Òş²Ø±¾´°Ìå
+				dispose(); //éšè—æœ¬çª—ä½“
 			}
 		});
 		button_2.setBounds(251, 170, 75, 23);
@@ -152,8 +152,8 @@ public class LoginFrame extends JFrame {
 	}
 	
 	private void init() {
-		this.setTitle("µÇÂ¼½çÃæ");
-		this.setResizable(false);
+		this.setTitle("ç™»å½•ç•Œé¢");
+		this.setResizable(false);	//ä¸å¯æ”¹å˜å¤§å°
 		UiUtil.setFrameCenter(this);
 		UiUtil.setFrameImage(this,"user.png");
 	}
