@@ -81,49 +81,49 @@ public class RegistFrame extends JFrame {
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**
-				 * ·ÖÎö
-				 * A£º»ñÈ¡ÓÃ»§ÃûºÍÃÜÂë
-				 * B£ºÓÃÕıÔò±í´ïÊ½×öÊı¾İĞ£Ñé
-				 * C£º·â×°³ÉÓÃ»§¶ÔÏó
-				 * D£ºµ÷ÓÃÓÃ»§²Ù×÷µÄ¹¦ÄÜ½øĞĞ×¢²á
-				 * E£º»Øµ½µÇÂ¼½çÃæ
+				 * åˆ†æ
+				 * Aï¼šè·å–ç”¨æˆ·åå’Œå¯†ç 
+				 * Bï¼šç”¨æ­£åˆ™è¡¨è¾¾å¼åšæ•°æ®æ ¡éªŒ
+				 * Cï¼šå°è£…æˆç”¨æˆ·å¯¹è±¡
+				 * Dï¼šè°ƒç”¨ç”¨æˆ·æ“ä½œçš„åŠŸèƒ½è¿›è¡Œæ³¨å†Œ
+				 * Eï¼šå›åˆ°ç™»å½•ç•Œé¢
 				 */
 				//A
 				String username = jtfUsername.getText().trim();
 				String password = jpfPassword.getText().trim();
 				
 				//B
-				//¶¨Òå¹æÔò
-				//ÓÃ»§Ãû¹æÔò
-				String usernameRegex = "[a-zA-Z]{3,10}";	//×ÖÄ¸²»Çø·Ö´óĞ¡Ğ´
-				//ÃÜÂë¹æÔò
-				String passwordRegex = "\\w{6,12}";		//6-12Î»ÈÎÒâ×Ö·û
+				//å®šä¹‰è§„åˆ™
+				//ç”¨æˆ·åè§„åˆ™
+				String usernameRegex = "[a-zA-Z]{3,10}";	//å­—æ¯ä¸åŒºåˆ†å¤§å°å†™
+				//å¯†ç è§„åˆ™
+				String passwordRegex = "\\w{6,12}";		//6-12ä½ä»»æ„å­—ç¬¦
 				
-				//Ğ£Ñé
+				//æ ¡éªŒ
 				if(!username.matches(usernameRegex)) {
-					JOptionPane.showMessageDialog(rootPane, "ÓÃ»§Ãû²»Âú×ãÌõ¼ş(3-10¸öÓ¢ÎÄ×ÖÄ¸×é³É)");
+					JOptionPane.showMessageDialog(rootPane, "ç”¨æˆ·åä¸æ»¡è¶³æ¡ä»¶(3-10ä¸ªè‹±æ–‡å­—æ¯ç»„æˆ)");
 					jtfUsername.setText("");
 					jtfUsername.requestFocus();
 					return;
 				}
 				if(!password.matches(passwordRegex)) {
-					JOptionPane.showMessageDialog(rootPane, "ÃÜÂë²»Âú×ãÌõ¼ş(6-12¸öÈÎÒâµ¥´Ê×Ö·û)");
+					JOptionPane.showMessageDialog(rootPane, "å¯†ç ä¸æ»¡è¶³æ¡ä»¶(6-12ä¸ªä»»æ„å•è¯å­—ç¬¦)");
 					jpfPassword.setText("");
 					jpfPassword.requestFocus();
 					return;
 				}
 				
-				//·â×°³ÉÓÃ»§¶ÔÏó
+				//å°è£…æˆç”¨æˆ·å¯¹è±¡
 				User user =  new User();
 				user.setUsername(username);
 				user.setPassword(password);
 				
-				//µ÷ÓÃÓÃ»§²Ù×÷µÄ¹¦ÄÜ½øĞĞ×¢²á
+				//è°ƒç”¨ç”¨æˆ·æ“ä½œçš„åŠŸèƒ½è¿›è¡Œæ³¨å†Œ
 				UserDao ud = new UserDaoImpl();
 				ud.regist(user);
 				
-				//¸ø³öÌáÊ¾
-				JOptionPane.showMessageDialog(rootPane, "ÓÃ»§×¢²á³É¹¦£¡»Øµ½µÇÂ¼½çÃæ");
+				//ç»™å‡ºæç¤º
+				JOptionPane.showMessageDialog(rootPane, "ç”¨æˆ·æ³¨å†ŒæˆåŠŸï¼å›åˆ°ç™»å½•ç•Œé¢");
 				
 				goLogin();
 				
@@ -132,8 +132,8 @@ public class RegistFrame extends JFrame {
 			private void goLogin() {
 				// TODO Auto-generated method stub
 				LoginFrame lf = new LoginFrame();
-				lf.setVisible(true);
-				dispose();
+				lf.setVisible(true);	//è·³è½¬çš„çª—å£å¯è§
+				dispose();	//éšè—æœ¬ç•Œé¢
 			}
 		});
 		button_2.setBounds(232, 161, 75, 23);
@@ -148,7 +148,7 @@ public class RegistFrame extends JFrame {
 	
 	private void init() {
 		this.setTitle("\u6CE8\u518C\u754C\u9762");
-		this.setResizable(false);	//	ÓÃ»§²»ÄÜµ÷Õû´óĞ¡
+		this.setResizable(false);	//	ç”¨æˆ·ä¸èƒ½è°ƒæ•´å¤§å°
 		UiUtil.setFrameCenter(this);
 		UiUtil.setFrameImage(this,"user.png");
 	}
