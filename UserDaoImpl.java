@@ -11,10 +11,10 @@ import cn.itcast.dao.UserDao;
 import cn.itcast.pojo.User;
 
 public class UserDaoImpl implements UserDao {
-	// ¶¨ÒåÎÄ¼ş
+	// å®šä¹‰æ–‡ä»¶
 	private static File file = new File("user.txt");
 
-	// Àà¼ÓÔØµÄÊ±ºò¾Í°ÑÎÄ¼ş´´½¨
+	// ç±»åŠ è½½çš„æ—¶å€™å°±æŠŠæ–‡ä»¶åˆ›å»º
 	static {
 		try {
 			file.createNewFile();
@@ -32,8 +32,8 @@ public class UserDaoImpl implements UserDao {
 		try {
 			br = new BufferedReader(new FileReader(file));
 			String line = null;
-			while ((line = br.readLine()) != null) {
-				String[] datas = line.split("="); // ÓÃ»§ÃûÃÜÂë·Ö¿ª·Å£¬ÒÔ¡°=¡±ÇĞ¸î
+			while ((line = br.readLine()) != null) {	//ä¸€è¡Œä¸€è¡Œçš„è¯»
+				String[] datas = line.split("="); // ç”¨æˆ·åå¯†ç åˆ†å¼€æ”¾ï¼Œä»¥â€œ=â€åˆ‡å‰²
 				if (datas[0].equals(username) && datas[1].equals(password)) {
 					flag = true;
 					break;
