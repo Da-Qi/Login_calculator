@@ -111,27 +111,27 @@ public class FrameDemo extends JFrame {
 		JButton button = new JButton("\u8BA1\u7B97");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// »ñÈ¡µÚÒ»¸ö²Ù×÷Êı
+				// è·å–ç¬¬ä¸€ä¸ªæ“ä½œæ•°
 				String firstNumberString = firstNumber.getText().trim();
-				// »ñÈ¡ÔËËã·û
+				// è·å–è¿ç®—ç¬¦
 				String selectOperator1 = selectOperator.getSelectedItem().toString();
-				// »ñÈ¡µÚ¶ş¸ö²Ù×÷Êı
+				// è·å–ç¬¬äºŒä¸ªæ“ä½œæ•°
 				String secondNumberString = secondNumber.getText().trim();
 				
 				
-				//Êı¾İĞ£Ñé£¬±ØĞëÊÇÊı×Ö×Ö·û´®
+				//æ•°æ®æ ¡éªŒï¼Œå¿…é¡»æ˜¯æ•°å­—å­—ç¬¦ä¸²
 				String regex = "\\d+";
 				 
-				//¼ìÑéµÚÒ»¸öÊı
+				//æ£€éªŒç¬¬ä¸€ä¸ªæ•°
 				if(!firstNumberString.matches(regex)) {
-					 JOptionPane.showMessageDialog(rootPane, "µÚÒ»¸ö²Ù×÷Êı²»Âú×ãÒªÇó");;
+					 JOptionPane.showMessageDialog(rootPane, "ç¬¬ä¸€ä¸ªæ“ä½œæ•°ä¸æ»¡è¶³è¦æ±‚");;
 					 firstNumber.setText("");
 					 firstNumber.requestFocus();
 					 return;
 				 }
-				//¼ìÑéµÚ¶ş¸öÊı
+				//æ£€éªŒç¬¬äºŒä¸ªæ•°
 				if(!secondNumberString.matches(regex)) {
-					 JOptionPane.showMessageDialog(rootPane, "µÚ¶ş¸ö²Ù×÷Êı²»Âú×ãÒªÇó");;
+					 JOptionPane.showMessageDialog(rootPane, "ç¬¬äºŒä¸ªæ“ä½œæ•°ä¸æ»¡è¶³è¦æ±‚");;
 					 secondNumber.setText("");
 					 secondNumber.requestFocus();
 					 return;
@@ -139,11 +139,11 @@ public class FrameDemo extends JFrame {
 				
 				
 
-				// °Ñ×Ö·û´®×ª»»ÎªÕûÊı£»
+				// æŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•´æ•°ï¼›
 				double firstNumber = Integer.parseInt(firstNumberString);
 				double secondNumber = Integer.parseInt(secondNumberString);
 
-				// ¶¨Òå±äÁ¿½ÓÊÜ½á¹û
+				// å®šä¹‰å˜é‡æ¥å—ç»“æœ
 				double resultNumber1 = 0;
 
 				switch (selectOperator1) {
@@ -160,26 +160,26 @@ public class FrameDemo extends JFrame {
 					resultNumber1 = firstNumber / secondNumber;
 					break;
 				}
-				//°Ñ½á¹û¸´ÖÆ¸ø½á¹û¿ò
+				//æŠŠç»“æœå¤åˆ¶ç»™ç»“æœæ¡†
 				resultNumber.setText(String.format("%.2f", resultNumber1));
-				
+
 			}
 		});
 		button.setBounds(230, 110, 93, 23);
 		contentPane.add(button);
-		/*//ÉèÖÃÍ¼±ê
+		/*//è®¾ç½®å›¾æ ‡
 		UiUtil.setFrameImage(this,"jjcc.png");
-		//¾ÓÖĞ
+		//å±…ä¸­
 		UiUtil.setFrameCenter(this);*/
 		init(name);
 	}
 
 	private void init(String name) {
 		// TODO Auto-generated method stub
-		this.setTitle("»¶Ó­"+name+"Ê¹ÓÃ");
-		//ÉèÖÃÍ¼±ê
+		this.setTitle("æ¬¢è¿"+name+"ä½¿ç”¨");
+		//è®¾ç½®å›¾æ ‡
 		UiUtil.setFrameImage(this,"jjcc.png");
-		//¾ÓÖĞ
+		//å±…ä¸­
 		UiUtil.setFrameCenter(this);
 	}
 }
